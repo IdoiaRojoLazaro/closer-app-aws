@@ -45,7 +45,7 @@ function Document({
           <Meta />
           <Links />
         </head>
-        <body>
+        <body className="font-inter">
           {children}
           <RouteChangeAnnouncement />
           <ScrollRestoration />
