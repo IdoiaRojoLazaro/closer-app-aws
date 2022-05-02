@@ -1,5 +1,5 @@
-import { TokenHoldings } from '~/data/getAccountTokens.server';
-
+import type { TokenHoldings } from '~/data/getAccountTokens.server';
+import ethDefaultIcon from '../assets/images/eth-icon.png';
 interface EthRowInterface {
     token: TokenHoldings;
 }
@@ -11,7 +11,7 @@ export const EthRow = ({ token }: EthRowInterface) => {
             <div className='icon'>
                 <img src={logoUrl}
                     alt=""
-                    onError={e => { e.currentTarget.src = "/images/eth-icon.png"; }}
+                    onError={e => { e.currentTarget.src = ethDefaultIcon; }}
                 />
             </div>
             <div className='content'>
