@@ -45,8 +45,8 @@ export default function Index() {
       <main className="p-8 login">
         <h1>Wallets detective ️🐕</h1>
         <div className="card">
-          <p className="error">Sorry, <b>{loaderData.address}</b> doesn't look like a valid address!</p>
-          <button className="btn">Try again</button>
+          <p className="error">Sorry, <b className="font-inter">{loaderData.address}</b> doesn't look like a valid address!</p>
+          <button className="btn font-inter">Try again</button>
         </div>
       </main>
     );

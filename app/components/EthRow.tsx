@@ -15,10 +15,10 @@ export const EthRow = ({ token }: EthRowInterface) => {
                 />
             </div>
             <div className='content'>
-                <h3>{contractName} <span>({contractTickerSymbol})</span></h3>
+                <h3 className='font-inter'>{contractName} <span>({contractTickerSymbol})</span></h3>
                 <p>Balance: {balance}</p>
             </div>
-            <button className='btn-simple'>Token page ↗︎</button>
+            <button className='btn-simple font-inter'>Token page ↗︎</button>
         </div>
     )
 }

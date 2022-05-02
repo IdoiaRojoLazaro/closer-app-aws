@@ -18,7 +18,7 @@
   --bg: #fafafa;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Inter-Medium";
   font-style: normal;
   font-weight: 500;
@@ -30,7 +30,7 @@
   font-style: normal;
   font-weight: 400;
   src: local(""), url("/fonts/Inter-Regular.ttf") format("truetype");
-}
+} */
 
 body {
   background-color: var(--bg);

@@ -13,7 +13,7 @@ export const SubmitButton = () => {
 
     return (
         <>
-            <button type="submit" className="btn" disabled={transition.state !== 'idle' ? true : false}>
+            <button type="submit" className="btn font-inter" disabled={transition.state !== 'idle' ? true : false}>
                 {transition.state !== 'idle' && loadingSvg}
                 {text}
             </button>
