@@ -8,8 +8,11 @@ import {
   ScrollRestoration,
   useCatch,
   useLocation,
-} from "remix";
-import type { LinksFunction } from "remix";
+} from "@remix-run/react";
+
+import { LinksFunction } from "@remix-run/react/routeModules";
+
+
 
 import styles from "./styles.css";
 
