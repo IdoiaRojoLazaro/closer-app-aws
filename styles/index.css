@@ -20,14 +20,14 @@
   font-family: "Inter-Medium";
   font-style: normal;
   font-weight: 500;
-  src: local(""), url("./fonts/Inter-Medium.ttf") format("truetype");
+  src: local(""), url("/fonts/Inter-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Inter-Regular";
   font-style: normal;
   font-weight: 400;
-  src: local(""), url("./fonts/Inter-Regular.ttf") format("truetype");
+  src: local(""), url("/fonts/Inter-Regular.ttf") format("truetype");
 }
 
 body {
@@ -140,6 +140,7 @@ button:focus {
   font-size: 12px;
   height: 32px;
   justify-content: center;
+  margin: 0;
   transition: all 0.2s;
   width: 100%;
 }
