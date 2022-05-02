@@ -2,7 +2,8 @@ import type { DataFunctionArgs } from "@remix-run/server-runtime";
 import { Form, useLoaderData, useNavigate } from "@remix-run/react";
 import { EthRow } from "~/components/EthRow";
 import { SubmitButton } from "~/components/SubmitButton";
-import getAccountTokens, { TokenHoldings } from "~/data/getAccountTokens.server";
+import type { TokenHoldings } from "~/data/getAccountTokens.server";
+import getAccountTokens from "~/data/getAccountTokens.server";
 
 type LoaderData = Awaited<ReturnType<typeof loader>>;
 
@@ -23,6 +24,7 @@ export let loader = async ({ request }: DataFunctionArgs) => {
 export default function Index() {
   const navigate = useNavigate();
   const loaderData = useLoaderData<LoaderData>();
+  console.log(process.env.API_TEST_IDO);
 
   if (loaderData?.address === null) {
     return (
