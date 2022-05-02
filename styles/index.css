@@ -17,22 +17,22 @@
 }
 
 @font-face {
-  font-family: 'Inter-Medium';
+  font-family: "Inter-Medium";
   font-style: normal;
   font-weight: 500;
-  src: local(''), url('/fonts/Inter-Medium.ttf') format('truetype');
+  src: local(""), url("./fonts/Inter-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Inter-Regular';
+  font-family: "Inter-Regular";
   font-style: normal;
   font-weight: 400;
-  src: local(''), url('/fonts/Inter-Regular.ttf') format('truetype');
+  src: local(""), url("./fonts/Inter-Regular.ttf") format("truetype");
 }
 
 body {
   background-color: var(--bg);
-  font-family: 'Inter-Regular', sans-serif;
+  font-family: "Inter-Regular", sans-serif;
   height: 100vh;
 }
 
@@ -109,14 +109,14 @@ main h1 {
   text-align: center;
 }
 .card .error b {
-  font-family: 'Inter-medium', sans-serif;
+  font-family: "Inter-medium", sans-serif;
 }
 /* Buttons */
 button {
   background-color: transparent;
   border-radius: 3px;
   color: var(--dark-grey);
-  font-family: 'Inter-Medium';
+  font-family: "Inter-Medium";
   font-size: 12px;
   line-height: 15px;
   margin: 0px 10px;
@@ -176,7 +176,7 @@ button:focus {
 }
 
 .eth-row .content h3 {
-  font-family: 'Inter-Medium', sans-serif;
+  font-family: "Inter-Medium", sans-serif;
   font-size: 13px;
 }
 
