@@ -10,7 +10,7 @@ import {
   useLocation,
 } from "@remix-run/react";
 
-import { LinksFunction } from "@remix-run/react/routeModules";
+import type { LinksFunction } from "@remix-run/react/routeModules";
 
 
 
