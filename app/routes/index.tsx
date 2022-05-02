@@ -24,7 +24,6 @@ export let loader = async ({ request }: DataFunctionArgs) => {
 export default function Index() {
   const navigate = useNavigate();
   const loaderData = useLoaderData<LoaderData>();
-  console.log(process.env.API_TEST_IDO);
 
   if (loaderData?.address === null) {
     return (
