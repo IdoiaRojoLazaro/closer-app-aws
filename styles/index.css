@@ -18,23 +18,8 @@
   --bg: #fafafa;
 }
 
-/* @font-face {
-  font-family: "Inter-Medium";
-  font-style: normal;
-  font-weight: 500;
-  src: local(""), url("/fonts/Inter-Medium.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Inter-Regular";
-  font-style: normal;
-  font-weight: 400;
-  src: local(""), url("/fonts/Inter-Regular.ttf") format("truetype");
-} */
-
 body {
   background-color: var(--bg);
-  /* font-family: "Inter-Regular", sans-serif; */
   font-weight: 400;
   height: 100vh;
 }
@@ -58,6 +43,7 @@ main.login {
 
 main.inner-page {
   height: calc(100% - 80px);
+  overflow-y: scroll;
 }
 
 main h1 {
@@ -67,8 +53,8 @@ main h1 {
 
 /* Inner page */
 .inner-page .container {
-  width: 434px;
   margin: 20px auto;
+  width: 434px;
 }
 
 /*Card component */
@@ -112,16 +98,16 @@ main h1 {
   text-align: center;
 }
 .card .error b {
-  /* font-family: "Inter-medium", sans-serif; */
+  font-weight: 500;
 }
 /* Buttons */
 button {
   background-color: transparent;
   border-radius: 3px;
   color: var(--dark-grey);
-  /* font-family: "Inter-Medium"; */
   font-size: 12px;
   font-weight: 500;
+  height: 40px;
   line-height: 15px;
   margin: 0px 10px;
   padding: 6px 8px;
@@ -161,18 +147,19 @@ button:focus {
 
 /* Eth components */
 .eth-row {
-  padding: 12px 16px;
-  box-shadow: 0px 2px 8px rgba(48, 46, 56, 0.03);
-  border-radius: 4px;
+  align-items: center;
   background-color: var(--white);
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px rgba(48, 46, 56, 0.03);
   display: flex;
+  padding: 12px 16px;
 }
 
 .eth-row .icon {
-  width: 32px;
-  height: 32px;
   border-radius: 50%;
+  height: 32px;
   overflow: hidden;
+  width: 32px;
 }
 
 .eth-row .content {
@@ -181,7 +168,6 @@ button:focus {
 }
 
 .eth-row .content h3 {
-  /* font-family: "Inter-Medium", sans-serif; */
   font-size: 13px;
   font-weight: 500;
 }
@@ -194,8 +180,8 @@ button:focus {
 .sec-title {
   color: var(--dark-grey);
   font-size: 13px;
-  padding-left: 20px;
   margin-bottom: 12px;
+  padding-left: 20px;
 }
 .section {
   margin-bottom: 32px;
