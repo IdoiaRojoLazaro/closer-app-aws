@@ -3,11 +3,13 @@ import { ButtonSecondary } from '../buttons/ButtonSecondary';
 
 interface EthRowInterface {
   token: TokenHoldings;
+  etherscanUrl?: string;
 }
 
-export const Row = ({ token }: EthRowInterface) => {
+export const Row = ({ token, etherscanUrl = "token" }: EthRowInterface) => {
   const { contractName, balance, contractTickerSymbol, logoUrl, contractAddress } = token;
-  const handleClick = () => window.open(`https://etherscan.io/token/${contractAddress}`);
+  const handleClick = () => window.open(`https://etherscan.io/${etherscanUrl
+    }/${contractAddress}`);
   return (
     <div className="row">
       <div className="icon">

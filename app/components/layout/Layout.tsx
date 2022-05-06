@@ -4,9 +4,7 @@ export const Layout = ({ classMain, children }: { classMain?: string, children?:
       <div className="z-index-1">
         {children}
       </div>
-      <div className="blur-shape blur-shape-red"></div>
-      <div className="blur-shape blur-shape-blue"></div>
-      <div className="blur-shape blur-shape-green"></div>
+      {['red', 'blue', 'green'].map(c => <div key={c} className={`blur-shape blur-shape-${c}`}></div>)}
     </main>
   )
 }

@@ -21,7 +21,8 @@
 
 body {
   background-color: var(--bg);
-  font-weight: 400;
+  color: var(--dark);
+  font-weight: 500;
   height: 100vh;
 }
 
@@ -55,6 +56,8 @@ main.inner-page {
 main h1 {
   font-size: 18px;
   margin-bottom: 32px;
+  font-weight: 500;
+  text-align: center;
 }
 
 /* Inner page */
@@ -73,8 +76,8 @@ main h1 {
 }
 
 .card label {
-  font-size: 12px;
   display: block;
+  font-size: 12px;
   line-height: 15px;
 }
 
@@ -83,11 +86,13 @@ main h1 {
   border: 1px solid #f0f2f5;
   box-sizing: border-box;
   border-radius: 3px;
+  color: var(--dark);
   height: 32px;
   padding: 8px;
   font-size: 13px;
+  font-weight: 400;
   width: 100%;
-  margin: 8px 0 20px;
+  margin: 8px 0 0;
   transition: background 0.2s;
 }
 
@@ -99,58 +104,40 @@ main h1 {
 
 .card input:focus {
   background-color: var(--light-grey);
-  background: #f0f2f5;
+  background: var(--light-grey);
   border: 1px solid rgba(109, 107, 118, 0.1);
   outline: none;
 }
 
 .card .error {
-  color: #f75353;
-  margin-bottom: 20px;
-  text-align: center;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 10px;
 }
 .card .error b {
   font-weight: 500;
 }
 
 /* Buttons */
-.btn-secondary {
-  background-color: transparent;
+.btn {
   border-radius: 3px;
-  color: var(--dark-grey);
   font-size: 12px;
-  font-weight: 500;
-  height: 27px;
-  line-height: 27px;
-  padding: 0px 8px;
   transition: all 0.2s;
-}
-
-.btn-secondary:hover,
-.btn-secondary:active {
-  background-color: #f0f2f5;
-  color: var(--dark);
 }
 
 .btn-primary {
   align-items: center;
   background-color: var(--dark-semi);
   border: 1px solid var(--dark);
-  border-radius: 3px;
   box-shadow: 0px 2px 8px rgba(109, 107, 118, 0.05);
   color: var(--white);
   display: flex;
-  font-size: 12px;
   height: 32px;
   justify-content: center;
-  margin: 0;
-  transition: all 0.2s;
+  margin: 20px 0 0;
   width: 100%;
-}
-
-.btn-primary.loading {
-  background: var(--dark-semi);
-  border: 1px solid var(--dark);
 }
 
 .btn-primary svg {
@@ -159,10 +146,23 @@ main h1 {
 
 .btn-primary:hover,
 .btn-primary:active {
-  background: var(--dark);
-  border: 1px solid var(--dark-semi);
   background-color: var(--dark);
-  color: var(--white);
+  border: 1px solid var(--dark-semi);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--dark-grey);
+  height: 27px;
+  line-height: 27px;
+  opacity: 0.6;
+  padding: 0px 8px;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  background-color: #f0f2f5;
+  color: var(--dark);
 }
 
 /* Eth components */
@@ -194,7 +194,7 @@ main h1 {
 .row h3,
 .address-row h3 {
   font-size: 13px;
-  font-weight: 500;
+  margin-bottom: 4px;
 }
 
 .row .coin-value span,
@@ -202,6 +202,8 @@ main h1 {
 .address-row p {
   color: var(--dark-grey);
   font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
 }
 .title-h2 {
   color: var(--dark-grey);
@@ -217,7 +219,7 @@ main h1 {
 .blur-shape {
   width: 436px;
   height: 436px;
-  opacity: 0.3;
+  opacity: 0.2;
   filter: blur(509.072px);
   position: absolute;
   mix-blend-mode: multiply;

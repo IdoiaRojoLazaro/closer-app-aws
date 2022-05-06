@@ -13,7 +13,7 @@ export const Overview = ({ address, balance }: { address: string, balance: Token
             <p>{address}</p>
           </>
         </AddressRow>
-        <Row token={balance} />
+        <Row token={balance} etherscanUrl="address" />
       </>
     </ListSection>
   )

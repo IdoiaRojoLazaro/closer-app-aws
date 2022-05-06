@@ -7,7 +7,7 @@ export const Login = ({ children }: { children?: JSX.Element }) => {
     <Layout classMain="login">
       <>
         <TitleApp />
-        <Card >
+        <Card>
           {children}
         </Card>
       </>

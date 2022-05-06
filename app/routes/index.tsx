@@ -34,27 +34,21 @@ export default function Index() {
 
   const loaderData = useLoaderData<LoaderData>();
 
-  if (loaderData?.address === null) {
-    return (
-      <Login>
-        <Form method="get">
-          <Label text="Wallet Address goes here" />
-          <InputText name="address" type="text" />
-          <ButtonPrimary textDefault="Find it" textSubmitting="Finding..." />
-        </Form>
-      </Login>
-    )
-  }
-
-  if (loaderData?.tokens === null) {
+  if (loaderData?.address === null || loaderData?.tokens === null) {
     return (
       <Login>
         <>
-          <Error text={<Fragment>Sorry, <b>{loaderData.address}</b> doesn't look like a valid address!</Fragment>} />
-          <ButtonPrimary textDefault="Try again" textSubmitting=""></ButtonPrimary>
+          <Form method="get">
+            <Label text="Wallet Address goes here" />
+            <InputText name="address" type="text" />
+            {loaderData?.tokens === null && (
+              <Error text={<Fragment>Sorry, <b>{loaderData.address}</b> doesn't look like a valid address!</Fragment>} />
+            )}
+            <ButtonPrimary textDefault="Find it" textSubmitting="Finding..." />
+          </Form>
         </>
       </Login>
-    );
+    )
   }
   interface accountBalanceInterface {
     eth: any;

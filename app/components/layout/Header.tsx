@@ -1,5 +1,4 @@
-
-import { useNavigate } from '@remix-run/react';
+import { useNavigate } from 'remix';
 import { TitleApp } from '../shared/TitleApp';
 
 export const Header = () => {
