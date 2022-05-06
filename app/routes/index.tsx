@@ -11,7 +11,8 @@ import { Login } from "~/components/layout/Login";
 import { ERC20Tokens } from "~/components/list/ERC20Tokens";
 import { Overview } from "~/components/list/Overview";
 import { Error } from "~/components/shared/Error";
-import getAccountTokens, { TokenHoldings } from "~/data/getAccountTokens.server";
+import type { TokenHoldings } from "~/data/getAccountTokens.server";
+import getAccountTokens from "~/data/getAccountTokens.server";
 
 type LoaderData = Awaited<ReturnType<typeof loader>>;
 
@@ -39,7 +40,7 @@ export default function Index() {
         <Form method="get">
           <Label text="Wallet Address goes here" />
           <InputText name="address" type="text" />
-          <ButtonPrimary text="Find it" textSubmitting="Finding..." />
+          <ButtonPrimary textDefault="Find it" textSubmitting="Finding..." />
         </Form>
       </Login>
     )
@@ -50,7 +51,7 @@ export default function Index() {
       <Login>
         <>
           <Error text={<Fragment>Sorry, <b>{loaderData.address}</b> doesn't look like a valid address!</Fragment>} />
-          <ButtonPrimary text="Try again" textSubmitting=""></ButtonPrimary>
+          <ButtonPrimary textDefault="Try again" textSubmitting=""></ButtonPrimary>
         </>
       </Login>
     );

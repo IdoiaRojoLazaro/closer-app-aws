@@ -1,7 +1,7 @@
 import { useTransition } from '@remix-run/react';
 import { loadingSvg } from '../shared/LoadingSvg';
 
-export const ButtonPrimary = ({ text, textSubmitting }: { text: string, textSubmitting: string }) => {
+export const ButtonPrimary = ({ textDefault, textSubmitting }: { textDefault: string, textSubmitting: string }) => {
   const transition = useTransition();
 
   const textBtn =
@@ -9,10 +9,10 @@ export const ButtonPrimary = ({ text, textSubmitting }: { text: string, textSubm
       ? { textSubmitting }
       : transition.state === "loading"
         ? "Loading!"
-        : { text };
+        : textDefault;
 
   return (
-    <button type="submit" className="btn-primary" disabled={transition.state !== 'idle' ? true : false}>
+    <button type="submit" className={`btn-primary ${transition.state}`} disabled={transition.state !== 'idle' ? true : false}>
       {transition.state !== 'idle' && loadingSvg}
       {textBtn}
     </button>
