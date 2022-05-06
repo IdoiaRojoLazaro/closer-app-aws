@@ -1,4 +1,4 @@
-import { TokenHoldings } from '~/data/getAccountTokens.server'
+import type { TokenHoldings } from '~/data/getAccountTokens.server'
 import { ListSection } from '../layout/ListSection'
 import { AddressRow } from '../rows/AddressRow'
 import { Row } from '../rows/Row'
@@ -13,7 +13,7 @@ export const Overview = ({ address, balance }: { address: string, balance: Token
             <p>{address}</p>
           </>
         </AddressRow>
-        <Row token={balance} etherscanUrl="address" />
+        <Row token={balance} goToAddress={address} />
       </>
     </ListSection>
   )

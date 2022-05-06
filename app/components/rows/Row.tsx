@@ -1,15 +1,16 @@
-import { TokenHoldings } from '~/data/getAccountTokens.server';
+import type { TokenHoldings } from '~/data/getAccountTokens.server';
 import { ButtonSecondary } from '../buttons/ButtonSecondary';
 
 interface EthRowInterface {
   token: TokenHoldings;
-  etherscanUrl?: string;
+  goToAddress?: string;
 }
 
-export const Row = ({ token, etherscanUrl = "token" }: EthRowInterface) => {
+export const Row = ({ token, goToAddress }: EthRowInterface) => {
   const { contractName, balance, contractTickerSymbol, logoUrl, contractAddress } = token;
-  const handleClick = () => window.open(`https://etherscan.io/${etherscanUrl
-    }/${contractAddress}`);
+  const endUrl = goToAddress ? `address/${goToAddress}` : `token/${contractAddress}`;
+  const handleClick = () => window.open(`https://etherscan.io/${endUrl}`);
+
   return (
     <div className="row">
       <div className="icon">
