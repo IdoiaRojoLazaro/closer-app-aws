@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,6 +16,7 @@
   --green: #a2f660;
   --red: #f75353;
   --bg: #fafafa;
+  --b-light-grey: #ebedf1;
 }
 
 body {
@@ -27,6 +28,11 @@ body {
 /* Layout */
 header {
   padding: 28px 32px;
+}
+
+.z-index-1 {
+  position: relative;
+  z-index: 1;
 }
 
 header h1 {
@@ -52,7 +58,7 @@ main h1 {
 }
 
 /* Inner page */
-.inner-page .container {
+.inner-page .list {
   margin: 20px auto;
   width: 434px;
 }
@@ -84,14 +90,20 @@ main h1 {
   margin: 8px 0 20px;
   transition: background 0.2s;
 }
+
 .card input:hover {
+  background: var(--light-grey);
+  border: 1px solid var(--b-light-grey);
   cursor: pointer;
 }
-.card input:hover,
+
 .card input:focus {
   background-color: var(--light-grey);
+  background: #f0f2f5;
+  border: 1px solid rgba(109, 107, 118, 0.1);
   outline: none;
 }
+
 .card .error {
   color: #f75353;
   margin-bottom: 20px;
@@ -100,26 +112,27 @@ main h1 {
 .card .error b {
   font-weight: 500;
 }
+
 /* Buttons */
-button {
+.btn-secondary {
   background-color: transparent;
   border-radius: 3px;
   color: var(--dark-grey);
   font-size: 12px;
   font-weight: 500;
-  height: 40px;
-  line-height: 15px;
-  margin: 0px 10px;
-  padding: 6px 8px;
+  height: 27px;
+  line-height: 27px;
+  padding: 0px 8px;
   transition: all 0.2s;
 }
-button:hover,
-button:focus {
+
+.btn-secondary:hover,
+.btn-secondary:active {
   background-color: #f0f2f5;
   color: var(--dark);
 }
 
-.btn {
+.btn-primary {
   align-items: center;
   background-color: var(--dark-semi);
   border: 1px solid var(--dark);
@@ -135,49 +148,62 @@ button:focus {
   width: 100%;
 }
 
-.btn:hover,
-.btn:focus {
+.btn-primary.loading {
+  background: var(--dark-semi);
+  border: 1px solid var(--dark);
+}
+
+.btn-primary svg {
+  margin-right: 7px;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background: var(--dark);
+  border: 1px solid var(--dark-semi);
   background-color: var(--dark);
   color: var(--white);
 }
 
-.btn svg {
-  margin-right: 10px;
-}
-
 /* Eth components */
-.eth-row {
+.row,
+.address-row {
   align-items: center;
   background-color: var(--white);
   border-radius: 4px;
   box-shadow: 0px 2px 8px rgba(48, 46, 56, 0.03);
-  display: flex;
   padding: 12px 16px;
 }
 
-.eth-row .icon {
+.row {
+  display: flex;
+}
+
+.row .icon {
   border-radius: 50%;
   height: 32px;
   overflow: hidden;
   width: 32px;
 }
 
-.eth-row .content {
+.row .coin-value {
   flex: 1;
   padding: 0 12px;
 }
 
-.eth-row .content h3 {
+.row h3,
+.address-row h3 {
   font-size: 13px;
   font-weight: 500;
 }
 
-.eth-row .content span,
-.eth-row .content p {
+.row .coin-value span,
+.row .coin-value p,
+.address-row p {
   color: var(--dark-grey);
   font-size: 13px;
 }
-.sec-title {
+.title-h2 {
   color: var(--dark-grey);
   font-size: 13px;
   margin-bottom: 12px;
@@ -185,4 +211,36 @@ button:focus {
 }
 .section {
   margin-bottom: 32px;
+}
+
+/*Blur shapes */
+.blur-shape {
+  width: 436px;
+  height: 436px;
+  opacity: 0.5;
+  filter: blur(509.072px);
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+
+.blur-shape-red {
+  background: var(--red);
+  left: 229px;
+  top: 221.51px;
+}
+
+.blur-shape-blue {
+  background: var(--blue);
+  left: 615.89px;
+  top: 89.15px;
+}
+
+.blur-shape-green {
+  background: var(--green);
+  left: 413.96px;
+  top: 62px;
+}
+
+.inner-page .blur-shape {
+  filter: blur(300px);
 }

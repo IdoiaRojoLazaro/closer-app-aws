@@ -1,9 +1,17 @@
+import { Form, useLoaderData } from "@remix-run/react";
 import type { DataFunctionArgs } from "@remix-run/server-runtime";
-import { Form, useLoaderData, useNavigate } from "@remix-run/react";
-import { EthRow } from "~/components/EthRow";
-import { SubmitButton } from "~/components/SubmitButton";
-import type { TokenHoldings } from "~/data/getAccountTokens.server";
-import getAccountTokens from "~/data/getAccountTokens.server";
+import { Fragment } from "react";
+import { ButtonPrimary } from "~/components/buttons/ButtonPrimary";
+import { Label } from "~/components/forms/Label";
+import { InputText } from "~/components/forms/textInputs/InputText";
+import { Header } from "~/components/layout/Header";
+import { Layout } from "~/components/layout/Layout";
+import { List } from "~/components/layout/List";
+import { Login } from "~/components/layout/Login";
+import { ERC20Tokens } from "~/components/list/ERC20Tokens";
+import { Overview } from "~/components/list/Overview";
+import { Error } from "~/components/shared/Error";
+import getAccountTokens, { TokenHoldings } from "~/data/getAccountTokens.server";
 
 type LoaderData = Awaited<ReturnType<typeof loader>>;
 
@@ -22,33 +30,29 @@ export let loader = async ({ request }: DataFunctionArgs) => {
 };
 
 export default function Index() {
-  const navigate = useNavigate();
+
   const loaderData = useLoaderData<LoaderData>();
 
   if (loaderData?.address === null) {
     return (
-      <main className="p-8 login">
-        <h1>Wallets detective ️🐕</h1>
-        <div className="card">
-          <Form method="get">
-            <label>Wallet Address goes here</label>
-            <input name="address" type="text" required />
-            <SubmitButton />
-          </Form>
-        </div>
-      </main>
+      <Login>
+        <Form method="get">
+          <Label text="Wallet Address goes here" />
+          <InputText name="address" type="text" />
+          <ButtonPrimary text="Find it" textSubmitting="Finding..." />
+        </Form>
+      </Login>
     )
   }
 
   if (loaderData?.tokens === null) {
     return (
-      <main className="p-8 login">
-        <h1>Wallets detective ️🐕</h1>
-        <div className="card">
-          <p className="error">Sorry, <b className="font-inter">{loaderData.address}</b> doesn't look like a valid address!</p>
-          <button className="btn font-inter">Try again</button>
-        </div>
-      </main>
+      <Login>
+        <>
+          <Error text={<Fragment>Sorry, <b>{loaderData.address}</b> doesn't look like a valid address!</Fragment>} />
+          <ButtonPrimary text="Try again" textSubmitting=""></ButtonPrimary>
+        </>
+      </Login>
     );
   }
   interface accountBalanceInterface {
@@ -63,38 +67,19 @@ export default function Index() {
       accountBalance.erc20List.push(token);
     }
     return accountBalance;
-  }, { "eth": {}, "erc20List": [] })
-
-  const goToForm = () => navigate('/');
+  }, { "eth": {}, "erc20List": [] });
 
   return (
     <>
-      <header>
-        <h1 onClick={goToForm}>Wallets detective ️🐕</h1>
-      </header>
-      <main className="p-8 inner-page">
-        <div className="container">
-          <h2 className="sec-title">Overview</h2>
-          <ul className="flex flex-col gap-2 section">
-            <div className="eth-row">
-              <div className='content'>
-                <h3>Address</h3>
-                <p>{loaderData.address}</p>
-              </div>
-            </div>
-            <EthRow token={accountBalance.eth} />
-          </ul>
-          <h2 className="sec-title">ERC-20 Tokens ({accountBalance.erc20List.length})</h2>
-
-          <ul className="flex flex-col gap-2 section">
-            {accountBalance.erc20List.map((erc20: TokenHoldings, index: number) => (
-              <li key={`${index}{erc20.contractTickerSymbol}`}>
-                <EthRow token={erc20} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </main>
+      <Header />
+      <Layout classMain="inner-page">
+        <List>
+          <>
+            <Overview address={loaderData.address} balance={accountBalance.eth} />
+            <ERC20Tokens erc20List={accountBalance.erc20List} />
+          </>
+        </List>
+      </Layout>
     </>
   );
 }
